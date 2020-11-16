@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodedoc
+  name: nodedoc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodedoc
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodedoc
+    spec:
+      containers:
+      - image: sabu86/node-docker
+        name: nodedoc
+        resources: {}
+status: {}
