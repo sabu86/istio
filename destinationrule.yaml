@@ -3,7 +3,7 @@ kind: DestinationRule
 metadata:
  name: node-destination
 spec:
-  host: node-docker
+  host: "*"
   subsets:
   - name: v1
     labels:
