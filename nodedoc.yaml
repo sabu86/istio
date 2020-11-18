@@ -4,18 +4,21 @@ metadata:
   creationTimestamp: null
   labels:
     app: nodedoc
+    release: v1
   name: nodedoc
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nodedoc
+      release: v1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         app: nodedoc
+        release: v1
     spec:
       containers:
       - image: sabu86/node-docker
