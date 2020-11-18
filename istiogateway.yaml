@@ -31,5 +31,6 @@ spec:
     route:
     - destination:
         host: node-docker
+        subset: v1
         port:
           number: 8000
