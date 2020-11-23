@@ -8,5 +8,5 @@ To create a simple gateway for our node-docker app.
 # http://localhost/test works fine
 
 # Created the network-rollback.yaml file
-# RUNNING THE NETWORK ABORT CHAOS with retries EXPERIMENT after applying the istio-repeater.yaml to my cluster.
-# chaos run network-rollback.yaml (At this point the experiment fails since the retires section isnt working) 
+# RUNNING THE NETWORK ABORT CHAOS with retries EXPERIMENT after applying the istiogateway_retry.yaml to my cluster.
+# chaos run network-rollback.yaml --rollback-strategy=always (At this point the experiment fails since the retires section isnt working) 
