@@ -1,20 +1,4 @@
 apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: nodedocker-gateway
-  namespace: chaos
-spec:
-  selector:
-    istio: ingressgateway # use istio default controller
-  servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - "*"
----
-apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: node-docker
@@ -25,16 +9,13 @@ spec:
   gateways:
   - nodedocker-gateway
   http:
-  - match:
-    - uri:
-        exact: /test
-    route:
+  - route:
     - destination:
-        host: node-docker
+        host: node-docker.chaos.svc.cluster.local
         subset: v1
         port:
           number: 8000
     retries:
       attempts: 10
-      perTryTimeout: 1s
+      perTryTimeout: 2s
       retryOn: 5xx
